@@ -1,0 +1,4 @@
+worker-id: 5e3453e5-8b74-4daa-b20e-06ec2da447d6
+logs.users: []
+logs.groups: []
+topology.submitter.user: david

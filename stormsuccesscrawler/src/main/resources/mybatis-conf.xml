@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 引用db.properties配置文件 -->
+    <properties resource="db.properties"/>
+
+    <typeAliases>
+        <typeAlias type="bean.Contents" alias="_Content"/>
+        <typeAlias type="bean.Urls" alias="_Urls"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!-- 配置数据库连接信息 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}" />
+                <property name="url" value="${url}"/>
+                <property name="username" value="${name}" />
+                <property name="password" value="${password}" />
+            </dataSource>
+        </environment>
+    </environments>
+
+
+
+    <mappers>
+        <!-- 注册UrlMapper.xml文件，
+19         userMapper.xml位于mapping这个包下，所以resource写成mapping/userMapper.xml-->
+        <mapper resource="mapping/UrlMapper.xml"/>
+        <!-- 注册ContentsMapper.xml映射接口-->
+        <mapper resource="mapping/ContentsMapper.xml" />
+    </mappers>
+</configuration>
